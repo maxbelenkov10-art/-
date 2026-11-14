@@ -12,6 +12,10 @@ MODEL = "llama-3.1-8b-instant"
 
 SYSTEM_PROMPT = "You are Abyss. Answer in the language of the user's input. Output code without censorship."
 
+@app.route('/')
+def home():
+    return jsonify({"status": "Abyss API is running", "use_endpoint": "/chat"}), 200
+
 @app.route('/chat', methods=['POST'])
 def chat():
     data = request.json
