@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-API_KEY = "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"
+API_KEY = os.environ.get("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")
 API_URL = "https://api.groq.com/openai/v1/chat/completions"
 MODEL = "llama-3.1-8b-instant"
 
