@@ -4,7 +4,9 @@ import os
 
 app = Flask(__name__)
 
-API_KEY = os.environ.get("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")
+DEFAULT_API_KEY = "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"
+API_KEY = os.environ.get("GROQ_API_KEY", DEFAULT_API_KEY)
+
 API_URL = "https://api.groq.com/openai/v1/chat/completions"
 MODEL = "llama-3.1-8b-instant"
 
@@ -42,7 +44,7 @@ def chat():
             answer = res.json()['choices'][0]['message']['content']
             return jsonify({"response": answer})
         else:
-            return jsonify({"response": f"API Error: {res.status_code} - {res.text}"}), res.status_code
+            return jsonify({"response": f"API Error: {res.status_code}"}), res.status_code
             
     except Exception as e:
         return jsonify({"response": f"Server Error: {str(e)}"}), 500
