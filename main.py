@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-DEFAULT_API_KEY = "gsk_ТВОЙ_КЛЮЧ_ОТ_GROQ_СЮДА"
+DEFAULT_API_KEY = "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"
 API_KEY = os.environ.get("GROQ_API_KEY", DEFAULT_API_KEY)
 
 API_URL = "https://api.groq.com/openai/v1/chat/completions"
